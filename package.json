@@ -1,0 +1,29 @@
+{
+  "name": "grpc-server",
+  "version": "1.0.0",
+  "description": "gRPC server with TypeScript",
+  "main": "dist/index.js",
+"scripts": {
+  "generate:grpc": "npx pbjs -t static-module -w commonjs -o src/infrastructure/grpc/proto/helloworld.js protos/helloworld.proto && npx pbts -o src/infrastructure/grpc/proto/helloworld.d.ts src/infrastructure/grpc/proto/helloworld.js",
+  "start": "ts-node src/index.ts",
+  "dev": "nodemon src/index.ts"
+},
+
+
+  "keywords": [],
+  "author": "Your Name",
+  "license": "ISC",
+  "dependencies": {
+    "@grpc/grpc-js": "^1.10.10",
+    "@grpc/proto-loader": "^0.7.13"
+  },
+  "devDependencies": {
+    "@types/node": "^20.14.9",
+    "grpc-tools": "^1.12.4",
+    "nodemon": "^3.1.4",
+    "pbjs": "0.0.14",
+    "protobufjs": "^7.3.2",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.5.3"
+  }
+}
