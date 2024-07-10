@@ -4,7 +4,7 @@
   "description": "gRPC server with TypeScript",
   "main": "dist/index.js",
 "scripts": {
-  "generate:grpc": "npx pbjs -t static-module -w commonjs -o src/infrastructure/grpc/proto/helloworld.js protos/helloworld.proto && npx pbts -o src/infrastructure/grpc/proto/helloworld.d.ts src/infrastructure/grpc/proto/helloworld.js",
+   "compile:proto": "grpc_tools_node_protoc --js_out=import_style=commonjs,binary:./generated --grpc_out=grpc_js:./generated --ts_out=grpc_js:./generated --proto_path=./protos ./protos/*.proto",
   "start": "ts-node src/index.ts",
   "dev": "nodemon src/index.ts"
 },
@@ -24,6 +24,8 @@
     "pbjs": "0.0.14",
     "protobufjs": "^7.3.2",
     "ts-node": "^10.9.2",
-    "typescript": "^5.5.3"
+    "typescript": "^5.5.3",
+   
+    "grpc_tools_node_protoc_ts": "^5.3.2"
   }
 }
